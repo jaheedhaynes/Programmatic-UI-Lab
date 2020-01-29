@@ -36,13 +36,13 @@ class MainViewController: UIViewController {
          button3.backgroundColor = UIColor.brown
          button3.translatesAutoresizingMaskIntoConstraints = false
 
-         buttonStackView.alignment = .fill
-         buttonStackView.distribution = .fillEqually
-         buttonStackView.spacing = 8.0
-
-         buttonStackView.addArrangedSubview(button)
-         buttonStackView.addArrangedSubview(button2)
-         buttonStackView.addArrangedSubview(button3)
+//         buttonStackView.alignment = .fill
+//         buttonStackView.distribution = .fillEqually
+//         buttonStackView.spacing = 8.0
+//
+//         buttonStackView.addArrangedSubview(button)
+//         buttonStackView.addArrangedSubview(button2)
+//         buttonStackView.addArrangedSubview(button3)
     }
 
 
