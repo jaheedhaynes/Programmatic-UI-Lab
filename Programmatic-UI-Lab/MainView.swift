@@ -10,7 +10,7 @@ import UIKit
 
 class MainView: UIView {
     
-     private let colorArray = ["red", "green", "blue"]
+    private let colorArray = ["red", "green", "blue"]
     
     public lazy var colorView: UIView = {
         let view = UIView()
@@ -22,7 +22,7 @@ class MainView: UIView {
         let stack = UIStackView()
         return stack
     }()
-
+    
     public lazy var redButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemRed
@@ -60,18 +60,6 @@ class MainView: UIView {
         
     }
     
-    private func setupRedButtonConstraints() {
-        // Step 1
-        addSubview(redButton)
-        
-        redButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            redButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
-            
-        ])
-    }
-    
     
     
     private func setupColorViewConstraints() {
@@ -89,6 +77,50 @@ class MainView: UIView {
             colorView.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
+    
+    
+    
+    private func setupRedButtonConstraints() {
+        // Step 1
+        addSubview(redButton)
+        
+        redButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            redButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            
+        ])
+    }
+    
+    
+    
+    private func setUpGreenButtonConstraints() {
+        
+        addSubview(greenButton)
+        
+        greenButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            greenButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20)
+            
+        ])
+    }
+    
+    
+    
+    private func setUpBlueButtonConstraints() {
+        
+        addSubview(blueButton)
+        
+        blueButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            
+            blueButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20)
+            
+        ])
+    }
+    
     
     
     

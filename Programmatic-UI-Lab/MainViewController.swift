@@ -19,7 +19,30 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        
+        
+         let button = UIButton()
+         button.setTitle("btn 1", for: .normal)
+         button.backgroundColor = UIColor.red
+         button.translatesAutoresizingMaskIntoConstraints = false
+
+         let button2 = UIButton()
+         button2.setTitle("btn 2", for: .normal)
+         button2.backgroundColor = UIColor.gray
+         button2.translatesAutoresizingMaskIntoConstraints = false
+
+         let button3 = UIButton()
+         button3.setTitle("btn 3", for: .normal)
+         button3.backgroundColor = UIColor.brown
+         button3.translatesAutoresizingMaskIntoConstraints = false
+
+         buttonStackView.alignment = .fill
+         buttonStackView.distribution = .fillEqually
+         buttonStackView.spacing = 8.0
+
+         buttonStackView.addArrangedSubview(button)
+         buttonStackView.addArrangedSubview(button2)
+         buttonStackView.addArrangedSubview(button3)
     }
 
 
