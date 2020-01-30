@@ -10,8 +10,8 @@ import UIKit
 
 class MainView: UIView {
     
-//    private let colorArray = ["red", "green", "blue"]
-  
+    //    private let colorArray = ["red", "green", "blue"]
+    
     //----------------------------------------------------------------------------------------------------------------
     // MARK: Buttons & Labels
     
@@ -94,9 +94,9 @@ class MainView: UIView {
     }
     
     
-    private func addRandomColorView(){
-        
-    }
+    //    private func addRandomColorView(){
+    //
+    //    }
     
     
     
@@ -121,52 +121,109 @@ class MainView: UIView {
     
     
     
-//    private func setupRedButtonConstraints() {
-//        // Step 1
-//        addSubview(redButton)
-//
-//        redButton.translatesAutoresizingMaskIntoConstraints = false
-//
-//        NSLayoutConstraint.activate([
-//            redButton.bottomAnchor.constraint(equalTo: colorView.bottomAnchor, constant: 50),
-//            redButton.leadingAnchor.constraint(equalTo: , constant: )
-//
-//        ])
-//    }
-//
-//
-//
-//    private func setUpGreenButtonConstraints() {
-//
-//        addSubview(greenButton)
-//
-//        greenButton.translatesAutoresizingMaskIntoConstraints = false
-//
-//        NSLayoutConstraint.activate([
-//            greenButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20)
-//
-//        ])
-//    }
-//
-//
-//
-//    private func setUpBlueButtonConstraints() {
-//
-//        addSubview(blueButton)
-//
-//        blueButton.translatesAutoresizingMaskIntoConstraints = false
-//
-//        NSLayoutConstraint.activate([
-//
-//            blueButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20)
-//
-//        ])
-//    }
+    //    private func setupRedButtonConstraints() {
+    //        // Step 1
+    //        addSubview(redButton)
+    //
+    //        redButton.translatesAutoresizingMaskIntoConstraints = false
+    //
+    //        NSLayoutConstraint.activate([
+    //            redButton.bottomAnchor.constraint(equalTo: colorView.bottomAnchor, constant: 50),
+    //            redButton.leadingAnchor.constraint(equalTo: , constant: )
+    //
+    //        ])
+    //    }
+    //
+    //
+    //
+    //    private func setUpGreenButtonConstraints() {
+    //
+    //        addSubview(greenButton)
+    //
+    //        greenButton.translatesAutoresizingMaskIntoConstraints = false
+    //
+    //        NSLayoutConstraint.activate([
+    //            greenButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20)
+    //
+    //        ])
+    //    }
+    //
+    //
+    //
+    //    private func setUpBlueButtonConstraints() {
+    //
+    //        addSubview(blueButton)
+    //
+    //        blueButton.translatesAutoresizingMaskIntoConstraints = false
+    //
+    //        NSLayoutConstraint.activate([
+    //
+    //            blueButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20)
+    //
+    //        ])
+    //    }
     
     
     
+    //********************************************
+    // MARK: Constraints for Buttons (STACK VIEW)
     
     private func setupStackView() {
+        addSubview(stackView)
+        addSubview(redButton)
+        addSubview(greenButton)
+        addSubview(blueButton)
         
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        redButton.translatesAutoresizingMaskIntoConstraints = false
+        greenButton.translatesAutoresizingMaskIntoConstraints = false
+        blueButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        stackView.addArrangedSubview(redButton)
+        stackView.addArrangedSubview(greenButton)
+        stackView.addArrangedSubview(blueButton)
+        
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        stackView.spacing = 20
+        
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: colorView.bottomAnchor, constant: 20),
+            stackView.centerXAnchor.constraint(equalTo: colorView.centerXAnchor),
+            stackView.widthAnchor.constraint(equalTo: colorView.widthAnchor, multiplier: 1),
+            stackView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.1)
+            
+        ])
+    }
+    
+    //********************************************
+
+    
+    
+    private func setupScoreLabelConstraints() {
+        addSubview(scoreLabel)
+        
+        scoreLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            scoreLabel.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 20),
+            
+            scoreLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            
+            scoreLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+        ])
+    }
+    
+    private func setupHighScoreLabelConstraints() {
+        addSubview(highScoreLabel)
+        
+        highScoreLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            highScoreLabel.topAnchor.constraint(equalTo: scoreLabel.bottomAnchor, constant: 20),
+            
+            highScoreLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            
+            highScoreLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+        ])
     }
 }
